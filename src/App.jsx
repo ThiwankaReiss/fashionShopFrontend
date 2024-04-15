@@ -3,19 +3,19 @@ import './App.css'
 
 import Login from './assets/component/Login/Login'
 import Register from './assets/component/Register/Register'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NavBar from './assets/component/NavBar/NavBar'
 
 function App() {
 
   return (
-    <div className="background-color-set">
-      <div className="container ">
-        <div className="row">
-          <Register/>
-        </div>
-      </div>
-    </div>
-
-
+      <BrowserRouter>
+        <NavBar></NavBar>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </BrowserRouter>
   )
 }
 
