@@ -2,9 +2,10 @@ import './NavBar.css';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
+
 export default function NavBar() {
     const [hoverBtn, sethoverBtn] = useState(null);
-    const [selectedBtn, setSelectedBtn] = useState(null);
+    const [selectedBtn, setSelectedBtn] = useState(1);
     return (
         <nav className="navbar navbar-expand-lg bg-black">
             <div className="container-fluid">
@@ -20,7 +21,7 @@ export default function NavBar() {
                                 onMouseLeave={() => { sethoverBtn(null) }}
                                 className={`nav-link ${(hoverBtn || selectedBtn) && (hoverBtn === 1 || selectedBtn == 1) ? 'selected-txt' : 'un-selected-txt'}`}
                                 aria-current="page">
-                                Login
+                                <i class="bi bi-boxes"></i> Products
                             </Link>
                             {(hoverBtn || selectedBtn) && (hoverBtn === 1 || selectedBtn == 1) && (<div className='shadow-bellow'></div>)}
                         </li>
@@ -31,7 +32,7 @@ export default function NavBar() {
                                 onMouseLeave={() => { sethoverBtn(null) }}
                                 className={`nav-link  ${(hoverBtn || selectedBtn) && (hoverBtn === 2 || selectedBtn == 2) ? 'selected-txt' : 'un-selected-txt'}`}
                                 aria-current="page">
-                                Reg
+                                <i class="bi bi-box-arrow-in-right"></i> Login
                             </Link>
                             {(hoverBtn || selectedBtn) && (hoverBtn === 2 || selectedBtn == 2) && (<div className='shadow-bellow'></div>)}
 
@@ -43,18 +44,55 @@ export default function NavBar() {
                                 onMouseLeave={() => { sethoverBtn(null) }}
                                 className={`nav-link  ${(hoverBtn || selectedBtn) && (hoverBtn === 3 || selectedBtn == 3) ? 'selected-txt' : 'un-selected-txt'}`}
                                 aria-current="page">
-                                Home
+                                <i class="bi bi-box-arrow-in-up"></i> Register
                             </a>
                             {(hoverBtn || selectedBtn) && (hoverBtn === 3 || selectedBtn == 3) && (<div className='shadow-bellow'></div>)}
                         </li>
+                        {/* After login both admin and customer*/}
                         <li className="nav-item itm-link">
                             <a
                                 onClick={() => { setSelectedBtn(4) }}
                                 onMouseEnter={() => { sethoverBtn(4) }}
                                 onMouseLeave={() => { sethoverBtn(null) }}
                                 className={`nav-link  ${(hoverBtn || selectedBtn) && (hoverBtn === 4 || selectedBtn == 4) ? 'selected-txt' : 'un-selected-txt'}`}
-                                aria-current="page">Home</a>
+                                aria-current="page">
+                                    <i class="bi bi-person-circle"></i> User Profile
+                                </a>
                             {(hoverBtn || selectedBtn) && (hoverBtn === 4 || selectedBtn == 4) && (<div className='shadow-bellow'></div>)}
+                        </li>
+                        {/* After login both admin and customer*/}
+                        <li className="nav-item itm-link">
+                            <a
+                                onClick={() => { setSelectedBtn(5) }}
+                                onMouseEnter={() => { sethoverBtn(5) }}
+                                onMouseLeave={() => { sethoverBtn(null) }}
+                                className={`nav-link  ${(hoverBtn || selectedBtn) && (hoverBtn === 5 || selectedBtn == 5) ? 'selected-txt' : 'un-selected-txt'}`}
+                                aria-current="page">
+                                    <i class="bi bi-tools"></i> Manage 
+                                </a>
+                            {(hoverBtn || selectedBtn) && (hoverBtn === 5 || selectedBtn == 5) && (<div className='shadow-bellow'></div>)}
+                        </li>
+                        <li className="nav-item itm-link">
+                            <a
+                                onClick={() => { setSelectedBtn(6) }}
+                                onMouseEnter={() => { sethoverBtn(6) }}
+                                onMouseLeave={() => { sethoverBtn(null) }}
+                                className={`nav-link  ${(hoverBtn || selectedBtn) && (hoverBtn === 6 || selectedBtn == 6) ? 'selected-txt' : 'un-selected-txt'}`}
+                                aria-current="page">
+                                   <i class="bi bi-people-fill"></i> Customers
+                                </a>
+                            {(hoverBtn || selectedBtn) && (hoverBtn === 6 || selectedBtn == 6) && (<div className='shadow-bellow'></div>)}
+                        </li>
+                        <li className="nav-item itm-link">
+                            <a
+                                onClick={() => { setSelectedBtn(7) }}
+                                onMouseEnter={() => { sethoverBtn(7) }}
+                                onMouseLeave={() => { sethoverBtn(null) }}
+                                className={`nav-link  ${(hoverBtn || selectedBtn) && (hoverBtn === 7 || selectedBtn == 7) ? 'selected-txt' : 'un-selected-txt'}`}
+                                aria-current="page">
+                                   <i class="bi bi-graph-up-arrow"></i> Orders
+                                </a>
+                            {(hoverBtn || selectedBtn) && (hoverBtn === 7 || selectedBtn == 7) && (<div className='shadow-bellow'></div>)}
                         </li>
                     </ul>
                 </div>
