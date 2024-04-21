@@ -26,7 +26,7 @@ export default function NavBar() {
                             {(hoverBtn || selectedBtn) && (hoverBtn === 1 || selectedBtn == 1) && (<div className='shadow-bellow'></div>)}
                         </li>
                         <li className="nav-item itm-link">
-                            <Link to="/register"
+                            <Link to="/login"
                                 onClick={() => { setSelectedBtn(2) }}
                                 onMouseEnter={() => { sethoverBtn(2) }}
                                 onMouseLeave={() => { sethoverBtn(null) }}
@@ -38,26 +38,26 @@ export default function NavBar() {
 
                         </li>
                         <li className="nav-item itm-link">
-                            <a
+                            <Link to="/register"
                                 onClick={() => { setSelectedBtn(3) }}
                                 onMouseEnter={() => { sethoverBtn(3) }}
                                 onMouseLeave={() => { sethoverBtn(null) }}
                                 className={`nav-link  ${(hoverBtn || selectedBtn) && (hoverBtn === 3 || selectedBtn == 3) ? 'selected-txt' : 'un-selected-txt'}`}
                                 aria-current="page">
                                 <i class="bi bi-box-arrow-in-up"></i> Register
-                            </a>
+                            </Link>
                             {(hoverBtn || selectedBtn) && (hoverBtn === 3 || selectedBtn == 3) && (<div className='shadow-bellow'></div>)}
                         </li>
                         {/* After login both admin and customer*/}
                         <li className="nav-item itm-link">
-                            <a
+                            <Link to="/profile"
                                 onClick={() => { setSelectedBtn(4) }}
                                 onMouseEnter={() => { sethoverBtn(4) }}
                                 onMouseLeave={() => { sethoverBtn(null) }}
                                 className={`nav-link  ${(hoverBtn || selectedBtn) && (hoverBtn === 4 || selectedBtn == 4) ? 'selected-txt' : 'un-selected-txt'}`}
                                 aria-current="page">
                                     <i class="bi bi-person-circle"></i> User Profile
-                                </a>
+                                </Link>
                             {(hoverBtn || selectedBtn) && (hoverBtn === 4 || selectedBtn == 4) && (<div className='shadow-bellow'></div>)}
                         </li>
                         {/* After login both admin and customer*/}

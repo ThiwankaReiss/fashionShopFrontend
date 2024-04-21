@@ -1,0 +1,22 @@
+.profile-pic-container{
+    height: 150px;
+    width: 150px;
+    background-color: blanchedalmond;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgb(247, 147, 147);
+}
+.round-corners{
+    border-radius: 25px !important;
+}
+.profile-pic-container:hover{
+    border-radius: 10%;
+    transition: 500ms;
+    border: 8px solid rgb(247, 147, 147);
+}
+.icon-color{
+    color:  rgb(247, 147, 147);
+}
+.btn-outline-light{
+    color:  rgb(247, 147, 147) !important;
+}

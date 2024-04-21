@@ -57,7 +57,7 @@ export default function Register() {
 
     return (
         
-            <div className='back-ground-image d-flex align-items-center justify-content-center'>
+            <div className='back-ground-image3 d-flex align-items-center justify-content-center'>
                 <div className="container">
                     <div className="row ">
                         <div className="col-4 w-100 d-flex align-items-center justify-content-end">

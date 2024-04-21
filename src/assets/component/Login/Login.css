@@ -1,4 +1,4 @@
-.back-ground-image{
+.back-ground-image2{
     background-image: url('./../../img/LoginBack.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -233,3 +233,12 @@
   .button1:active {
     transform: translateY(10px);
   }
+  .field1.has-error ::placeholder {
+    color: red;
+    opacity: 1;
+    font-size: 12px;
+}
+.field1.has-error ::-ms-input-placeholder {
+    color: red;
+    font-size: 12px;
+}
