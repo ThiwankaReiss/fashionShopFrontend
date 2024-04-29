@@ -50,6 +50,7 @@ const PicUpload = () => {
             <img src="https://drive.google.com/thumbnail?id=1M7GQObKFxpBM1_3wCazLt5k3feY342iM"/>
             <img src="https://drive.google.com/thumbnail?id=1lAjGvKnX2rYGq6BWJ0X_8IWce-N1EEbt"/>
             
+            
         </div>
     );
 };

@@ -1,17 +1,21 @@
-import NavBar from '../NavBar/NavBar'
-import PicUpload from '../PicUpload/PicUpload'
+import NavBar from '../../components/NavBar/NavBar'
 import { useForm } from 'react-hook-form'
 import Swal from 'sweetalert2'
 import './Login.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react'
-import { useCustomer } from './../Context/CustomerContext.jsx'
+
+import { useSnapshot } from 'valtio'
+import state from '../../store'
+import PicUpload from '../../components/PicUpload/PicUpload'
 
 export default function Login() {
     const { handleSubmit, register, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
-    const { setCustomer } = useCustomer();
+    // const { setCustomer } = useCustomer();
+    const snap = useSnapshot(state);
+
     const submit = async (data) => {
         console.log(data);
         Swal.fire('Please wait')
@@ -19,8 +23,9 @@ export default function Login() {
         axios.post('http://localhost:8080/auth', data)
             .then(function (response) {
                 console.log(response.data);
-                setCustomer(response.data);
+                
                 if (response.data != null && response.data !='') {
+                    state.customer=response.data;
                     Swal.fire({
                         title: "Sucess!",
                         text: "Registration Sucessfully!",
@@ -90,7 +95,7 @@ export default function Login() {
 
                     </div>
                     <div className="col-4 w-100"></div>
-                    <PicUpload />
+                   
                     
                 </div>
             </div>

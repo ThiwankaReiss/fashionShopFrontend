@@ -1,11 +1,13 @@
 import './NavBar.css';
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-
+import { useSnapshot } from 'valtio'
+import state from '../../store'
 
 export default function NavBar() {
+    const snap = useSnapshot(state);
     const [hoverBtn, sethoverBtn] = useState(null);
-    const [selectedBtn, setSelectedBtn] = useState(1);
+    const [selectedBtn, setSelectedBtn] = useState(snap.navButton);
     return (
         <nav className="navbar navbar-expand-lg bg-black">
             <div className="container-fluid">
@@ -62,14 +64,14 @@ export default function NavBar() {
                         </li>
                         {/* After login both admin and customer*/}
                         <li className="nav-item itm-link">
-                            <a
+                            <Link to="/manage"
                                 onClick={() => { setSelectedBtn(5) }}
                                 onMouseEnter={() => { sethoverBtn(5) }}
                                 onMouseLeave={() => { sethoverBtn(null) }}
                                 className={`nav-link  ${(hoverBtn || selectedBtn) && (hoverBtn === 5 || selectedBtn == 5) ? 'selected-txt' : 'un-selected-txt'}`}
                                 aria-current="page">
                                     <i class="bi bi-tools"></i> Manage 
-                                </a>
+                                </Link>
                             {(hoverBtn || selectedBtn) && (hoverBtn === 5 || selectedBtn == 5) && (<div className='shadow-bellow'></div>)}
                         </li>
                         <li className="nav-item itm-link">
