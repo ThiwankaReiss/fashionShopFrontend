@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import CanvasModel from '../../canvas';
+import './Manage.css'
 const Manage = () => {
     return (
         <div>
@@ -11,6 +13,10 @@ const Manage = () => {
 
             <button>Add frock 3D</button>
             <button>Add image</button>
+            <div className='add-height'>
+                <CanvasModel modelName="shirt"></CanvasModel>
+            </div>
+
         </div>
     )
 }
