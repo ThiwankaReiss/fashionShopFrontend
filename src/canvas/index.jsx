@@ -16,6 +16,7 @@ const CanvasModel = ({ modelName }) => {
         >
             <ambientLight intensity={0.3} position={[0, 0, -10]} />
             <ambientLight intensity={0.3} position={[0.28, 0.045, -0.012]} />
+
             <Environment preset='city' />
             <CameraRig cameraCordinates={[0, 0, 20]}>
                 <Backdrop></Backdrop>
