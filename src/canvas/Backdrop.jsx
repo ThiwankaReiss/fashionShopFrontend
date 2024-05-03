@@ -3,7 +3,7 @@ import { easing } from 'maath'
 import { useFrame } from '@react-three/fiber'
 import { AccumulativeShadows, RandomizedLight } from '@react-three/drei';
 
-const Backdrop = () => {
+const Backdrop = ({backDropposition ,backDropScale}) => {
   const shadows = useRef();
 
   return (
@@ -12,9 +12,9 @@ const Backdrop = () => {
       temporal
       frames={60}
       alphaTest={0.85}
-      scale={10}
+      scale={20}
       rotation={[Math.PI / 2, 0, 0]}
-      position={[0, 0, -0.2]}
+      position={[0, 0, -1.7]}
     >
       <RandomizedLight 
         amount={4}
@@ -33,5 +33,8 @@ const Backdrop = () => {
     </AccumulativeShadows>
   )
 }
+
+// shirt [0, 0, -0.2] scale 10
+// frock [0, 0, -1.7] scale 20
 
 export default Backdrop

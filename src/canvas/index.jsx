@@ -6,8 +6,9 @@ import Shirt from './Shirt'
 import Backdrop from './Backdrop.jsx'
 import Frock from './Frock.jsx'
 
-const CanvasModel = ({ modelName }) => {
+const CanvasModel = ({ modelName ,beltColor, topColor, bottomColor, buckelColor, bottomTextureImage, imageRepeate , topDecalImage, decalScale }) => {
     return (
+
         <Canvas
             shadows
             camera={{ position: [0, 0, 0], fov: 20 }}
@@ -23,12 +24,14 @@ const CanvasModel = ({ modelName }) => {
                 <Center>
                     {modelName && modelName == "shirt" && (
                         // <Shirt />
-                        <Frock></Frock>
+                        <Frock beltColor={beltColor}></Frock>
                     )}
 
                 </Center>
             </CameraRig>
         </Canvas>
+
+
     )
 }
 

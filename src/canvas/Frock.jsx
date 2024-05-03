@@ -6,13 +6,13 @@ import { Decal, useGLTF, useTexture } from '@react-three/drei';
 import state from '../store';
 import * as THREE from 'three';
 
-const Frock = () => {
+const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImage, imageRepeate , topDecalImage, decalScale}) => {
   const snap = useSnapshot(state);
-  const { nodes, materials } = useGLTF('/frock_baked_All.glb');
-  const logoTexture = useTexture(snap.logoDecal);
-  const fullTexture = useTexture(snap.fullDecal);
-  const beltTexture = useTexture(snap.belt);
-  useFrame((state, delta) => easing.dampC(materials.FrockBeltMaterial.color, snap.color, 0.25, delta));
+  const { nodes, materials } = useGLTF('/frock_baked_all.glb');
+
+  const fullTexture = useTexture('/vite.svg');
+
+  useFrame((state, delta) => easing.dampC(materials.FrockBeltMaterial.color, beltColor, 0.25, delta));
   useFrame((state, delta) => easing.dampC(materials.FrockTopMaterial.color, snap.color, 0.25, delta));
   useFrame((state, delta) => easing.dampC(materials.FrockBottomMaterial.color, "#FF0000", 0.25, delta));
   useFrame((state, delta) => easing.dampC(materials.FrockBuckelMaterial.color, "#FF0000", 0.25, delta));
@@ -20,10 +20,10 @@ const Frock = () => {
 
   // Define texture properties
   const textureRepeat = 10; // Number of times the texture repeats
-  const flowerTexture = useTexture('/threejs.png'); // Replace '/flower_texture.png' with your image path
+  const flowerTexture = useTexture('http://localhost:8080/proxy/1lAjGvKnX2rYGq6BWJ0X_8IWce-N1EEbt'); // Replace '/flower_texture.png' with your image path
 
   // Apply texture repetition
-  flowerTexture.wrapS = flowerTexture.wrapT= THREE.RepeatWrapping;
+  flowerTexture.wrapS = flowerTexture.wrapT = THREE.RepeatWrapping;
   flowerTexture.repeat.set(textureRepeat, textureRepeat);
 
 
@@ -52,10 +52,19 @@ const Frock = () => {
         rotation={[0, Math.PI, 0]}
         position={[0, 1.2, 0]}
       >
+        
+        {snap.isLogoTexture && (
+              <Decal 
+                position={[0,  2.15,-0.9]}
+                rotation={[0, 0, 0]}
+                scale={1}
+                map={fullTexture}
+              />
+            )}
 
       </mesh>
 
-      
+
       <mesh
         castShadow
         geometry={nodes.Frock_Buckel.geometry}
@@ -98,71 +107,6 @@ const Frock = () => {
 
       </mesh>
 
-      {/* <mesh
-                castShadow
-                geometry={nodes.testCube.geometry} // Assuming nodes.tie is the geometry of the tie
-                material={materials.CubeMaterial} // Assuming materials.tieMaterial is the material for the tie
-                material-roughness={1}
-                dispose={null}
-                rotation={[0, Math.PI , 0]}
-                position={[0,0.5,0]}
-            /> */}
-      {/* <Decal 
-                position={[0.34, 1.25, -0.8]}
-                rotation={[0, 0, 0]}
-                scale={0.23}
-                map={beltTexture}
-                // map-anisotropy={16}
-                depthTest={false}
-                depthWrite={true}
-              />
-              <Decal 
-                position={[0.48, 1.25, -0.7]}
-                rotation={[0, 0, 0]}
-                scale={0.225}
-                map={beltTexture}
-                // map-anisotropy={16}
-                depthTest={false}
-                depthWrite={true}
-              />
-              <Decal 
-                position={[0.645, 1.25, -0.5]}
-                rotation={[0, 0, 0]}
-                scale={0.225}
-                map={beltTexture}
-                // map-anisotropy={16}
-                depthTest={false}
-                depthWrite={true}
-              />
-              <Decal 
-                position={[0.76, 1.25, -0.3]}
-                rotation={[0, 1.1, 0]}
-                scale={0.225}
-                map={beltTexture}
-                // map-anisotropy={16}
-                depthTest={false}
-                depthWrite={true}
-              /> */}
-      {/* {snap.isFullTexture && (
-              <Decal 
-                position={[0, 0,-0.9 ]}
-                rotation={[0, 0, 0]}
-                scale={2}
-                map={fullTexture}
-              />
-            )}
-    
-            {snap.isLogoTexture && (
-              <Decal 
-                position={[0, 0.04, -0.9]}
-                rotation={[0, 0, 0]}
-                scale={1}
-                map={logoTexture}
-                // map-anisotropy={16}
-                depthTest={false}
-                depthWrite={true}
-              />
-            )} */}
 
     </group>
 
