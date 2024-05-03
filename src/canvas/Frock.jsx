@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { easing } from 'maath'
 import { useSnapshot } from 'valtio'
 import { useFrame } from '@react-three/fiber'
@@ -10,11 +10,11 @@ const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImag
   const snap = useSnapshot(state);
   const { nodes, materials } = useGLTF('/frock_baked_all.glb');
 
-  const fullTexture = useTexture('/vite.svg');
-
+  const fullTexture=useTexture('http://localhost:8080/proxy/'+topDecalImage);
+  
   useFrame((state, delta) => easing.dampC(materials.FrockBeltMaterial.color, beltColor, 0.25, delta));
-  useFrame((state, delta) => easing.dampC(materials.FrockTopMaterial.color, snap.color, 0.25, delta));
-  useFrame((state, delta) => easing.dampC(materials.FrockBottomMaterial.color, "#FF0000", 0.25, delta));
+  useFrame((state, delta) => easing.dampC(materials.FrockTopMaterial.color, topColor, 0.25, delta));
+  useFrame((state, delta) => easing.dampC(materials.FrockBottomMaterial.color, bottomColor, 0.25, delta));
   useFrame((state, delta) => easing.dampC(materials.FrockBuckelMaterial.color, buckelColor, 0.25, delta));
   const stateString = JSON.stringify(snap);
 
