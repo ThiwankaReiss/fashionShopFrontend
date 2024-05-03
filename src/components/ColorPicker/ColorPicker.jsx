@@ -1,9 +1,9 @@
 import React from 'react';
 import { SketchPicker } from 'react-color';
 
-const ColorPicker = ({ funcColor,currentColor }) => {
+const ColorPicker = ({ getColor,currentColor }) => {
   const handleChange = (color) => {
-    funcColor(color.hex);
+    getColor(color.hex);
   };
 
   return (

@@ -24,7 +24,7 @@ const CanvasModel = ({ modelName ,beltColor, topColor, bottomColor, buckelColor,
                 <Center>
                     {modelName && modelName == "shirt" && (
                         // <Shirt />
-                        <Frock beltColor={beltColor}></Frock>
+                        <Frock beltColor={beltColor} buckelColor={buckelColor}></Frock>
                     )}
 
                 </Center>

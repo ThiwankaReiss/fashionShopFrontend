@@ -15,7 +15,7 @@ const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImag
   useFrame((state, delta) => easing.dampC(materials.FrockBeltMaterial.color, beltColor, 0.25, delta));
   useFrame((state, delta) => easing.dampC(materials.FrockTopMaterial.color, snap.color, 0.25, delta));
   useFrame((state, delta) => easing.dampC(materials.FrockBottomMaterial.color, "#FF0000", 0.25, delta));
-  useFrame((state, delta) => easing.dampC(materials.FrockBuckelMaterial.color, "#FF0000", 0.25, delta));
+  useFrame((state, delta) => easing.dampC(materials.FrockBuckelMaterial.color, buckelColor, 0.25, delta));
   const stateString = JSON.stringify(snap);
 
   // Define texture properties
