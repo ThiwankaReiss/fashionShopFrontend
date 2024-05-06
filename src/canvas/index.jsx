@@ -6,7 +6,7 @@ import Shirt from './Shirt'
 import Backdrop from './Backdrop.jsx'
 import Frock from './Frock.jsx'
 
-const CanvasModel = ({ modelName ,beltColor, topColor, bottomColor, buckelColor, bottomTextureImage, imageRepeate , topDecalImage, decalScale }) => {
+const CanvasModel = ({ modelName, beltColor, topColor, bottomColor, buckelColor, bottomTextureImage, imageRepeate, topDecalImage, decalScale, model }) => {
     return (
 
         <Canvas
@@ -19,25 +19,29 @@ const CanvasModel = ({ modelName ,beltColor, topColor, bottomColor, buckelColor,
             <ambientLight intensity={0.3} position={[0.28, 0.045, -0.012]} />
 
             <Environment preset='city' />
-            <CameraRig cameraCordinates={[0, 0, 20]}>
-                <Backdrop></Backdrop>
-                <Center>
-                    {modelName && modelName == "shirt" && (
-                        // <Shirt />
-                        <Frock 
-                        beltColor={beltColor} 
-                        buckelColor={buckelColor} 
-                        topColor={topColor} 
-                        bottomColor={bottomColor}
-                        topDecalImage={topDecalImage}
-                        decalScale={decalScale}
-                        bottomTextureImage={bottomTextureImage}
-                        imageRepeate={imageRepeate}
-                        ></Frock>
-                    )}
+            {modelName && modelName == "frock" && (
+                <CameraRig cameraCordinates={[0, 0, 20]}>
+                    <Backdrop></Backdrop>
+                    <Center>
 
-                </Center>
-            </CameraRig>
+
+                        <Frock
+
+                            beltColor={beltColor}
+                            buckelColor={buckelColor}
+                            topColor={topColor}
+                            bottomColor={bottomColor}
+                            topDecalImage={topDecalImage}
+                            decalScale={decalScale}
+                            bottomTextureImage={bottomTextureImage}
+                            imageRepeate={imageRepeate}
+                            model={model}
+                        ></Frock>
+
+
+                    </Center>
+                </CameraRig>
+            )}
         </Canvas>
 
 

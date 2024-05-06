@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { easing } from 'maath'
-import { useSnapshot } from 'valtio'
+
 import { useFrame } from '@react-three/fiber'
 import { Decal, useGLTF, useTexture } from '@react-three/drei';
-import state from '../store';
+
 import * as THREE from 'three';
 
-const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImage, imageRepeate , topDecalImage, decalScale}) => {
-  const snap = useSnapshot(state);
-  const { nodes, materials } = useGLTF('/frock_baked_all.glb');
+
+const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImage, imageRepeate , topDecalImage, decalScale,glbPath,model}) => {
+
+  if(model==null){
+    model=0;
+  }
+  const { nodes, materials } = useGLTF(`/frock_baked_all${model}.glb`);
 
   const fullTexture=useTexture('http://localhost:8080/proxy/'+topDecalImage);
   
@@ -17,7 +21,7 @@ const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImag
   useFrame((state, delta) => easing.dampC(materials.FrockTopMaterial.color, topColor, 0.25, delta));
   useFrame((state, delta) => easing.dampC(materials.FrockBottomMaterial.color, bottomColor, 0.25, delta));
   useFrame((state, delta) => easing.dampC(materials.FrockBuckelMaterial.color, buckelColor, 0.25, delta));
-  const stateString = JSON.stringify(snap);
+
 
   // Define texture properties
   const textureRepeat = imageRepeate; // Number of times the texture repeats
@@ -31,9 +35,10 @@ const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImag
 
   return (
     <group
-      key={stateString}
+    
     >
       <mesh
+      
         castShadow
         geometry={nodes.Frock_Belt.geometry}
         material={materials.FrockBeltMaterial}
@@ -54,14 +59,14 @@ const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImag
         position={[0, 1.2, 0]}
       >
         
-        {snap.isLogoTexture && (
+        
               <Decal 
                 position={[0,  2.15,-0.9]}
                 rotation={[0, Math.PI, 0]}
                 scale={decalScale}
                 map={fullTexture}
               />
-            )}
+            
 
       </mesh>
 

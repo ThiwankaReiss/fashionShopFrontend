@@ -10,11 +10,13 @@ import { useSnapshot } from 'valtio'
 import state from '../../store'
 import PicUpload from '../../components/PicUpload/PicUpload'
 
+
 export default function Login() {
     const { handleSubmit, register, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
     // const { setCustomer } = useCustomer();
     const snap = useSnapshot(state);
+    
 
     const submit = async (data) => {
         console.log(data);
@@ -25,6 +27,7 @@ export default function Login() {
                 console.log(response.data);
                 
                 if (response.data != null && response.data !='') {
+                    state.navButton=4;
                     state.customer=response.data;
                     Swal.fire({
                         title: "Sucess!",
@@ -32,6 +35,8 @@ export default function Login() {
                         icon: "success"
                     });
                     Swal.hideLoading();
+                   
+                    console.log(snap.navButton);
                     navigate('/profile')                
                 } else {
                     Swal.fire({

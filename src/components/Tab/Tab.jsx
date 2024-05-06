@@ -4,6 +4,7 @@ import ColorPicker from '../ColorPicker/ColorPicker';
 const Tab = ({ getColor, currentColor, text }) => {
     const [showColorPicker, setShowColorPicker] = useState(false);
     const colorPickerRef = useRef(null);
+    
     useEffect(() => {
         function handleClickOutside(event) {
             if (colorPickerRef.current && !colorPickerRef.current.contains(event.target)) {
@@ -29,9 +30,10 @@ const Tab = ({ getColor, currentColor, text }) => {
                 </div>
 
                 <div className="col-4 d-flex justify-content-end">
-                    <button onClick={() => { addPicker(showColorPicker) }} className='btn btn-light p-0'>
+                    <button  onClick={() => { addPicker(showColorPicker) }} className='btn btn-light p-0' >
                         <img height="40px" src="src/assets/colorPickerImage.jpg" alt="Color Picker"></img>
                     </button>
+                   
                 </div>
                 {showColorPicker && (
                     <div >
