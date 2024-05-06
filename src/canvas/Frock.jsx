@@ -12,6 +12,7 @@ const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImag
 
   const fullTexture=useTexture('http://localhost:8080/proxy/'+topDecalImage);
   
+  
   useFrame((state, delta) => easing.dampC(materials.FrockBeltMaterial.color, beltColor, 0.25, delta));
   useFrame((state, delta) => easing.dampC(materials.FrockTopMaterial.color, topColor, 0.25, delta));
   useFrame((state, delta) => easing.dampC(materials.FrockBottomMaterial.color, bottomColor, 0.25, delta));
@@ -19,13 +20,13 @@ const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImag
   const stateString = JSON.stringify(snap);
 
   // Define texture properties
-  const textureRepeat = 10; // Number of times the texture repeats
-  const flowerTexture = useTexture('http://localhost:8080/proxy/1lAjGvKnX2rYGq6BWJ0X_8IWce-N1EEbt'); // Replace '/flower_texture.png' with your image path
+  const textureRepeat = imageRepeate; // Number of times the texture repeats
+  const flowerTexture = useTexture('http://localhost:8080/proxy/'+bottomTextureImage); // Replace '/flower_texture.png' with your image path
 
   // Apply texture repetition
   flowerTexture.wrapS = flowerTexture.wrapT = THREE.RepeatWrapping;
   flowerTexture.repeat.set(textureRepeat, textureRepeat);
-
+  flowerTexture.flipY=false;
 
 
   return (
@@ -56,8 +57,8 @@ const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImag
         {snap.isLogoTexture && (
               <Decal 
                 position={[0,  2.15,-0.9]}
-                rotation={[0, 0, 0]}
-                scale={1}
+                rotation={[0, Math.PI, 0]}
+                scale={decalScale}
                 map={fullTexture}
               />
             )}
@@ -103,6 +104,7 @@ const Frock = ({beltColor, topColor, bottomColor, buckelColor, bottomTextureImag
           opacity={1.5} // Adjust opacity as needed
           depthTest={true} // Enable depth testing for transparency
           depthWrite={false} // Disable depth writing for transparency
+
         />
 
       </mesh>

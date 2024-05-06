@@ -30,6 +30,9 @@ const CanvasModel = ({ modelName ,beltColor, topColor, bottomColor, buckelColor,
                         topColor={topColor} 
                         bottomColor={bottomColor}
                         topDecalImage={topDecalImage}
+                        decalScale={decalScale}
+                        bottomTextureImage={bottomTextureImage}
+                        imageRepeate={imageRepeate}
                         ></Frock>
                     )}
 

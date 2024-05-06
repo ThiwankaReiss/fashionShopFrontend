@@ -65,7 +65,7 @@ const PicUpload = ({ text ,getImage, currentImage }) => {
                         <div className='card'>
                             {
                                 image && (
-                                    <img className='m-1' src={URL.createObjectURL(image)} alt="Selected Image" />
+                                    <img height="200px" className='m-1' src={URL.createObjectURL(image)} alt="Selected Image" />
                                 )
                             }
                             
