@@ -1,13 +1,17 @@
 import './NavBar.css';
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import { Link } from "react-router-dom";
-import { useSnapshot } from 'valtio'
-import state from '../../store'
 
-export default function NavBar() {
-    const snap = useSnapshot(state);
+
+export default function NavBar({navButton}) {
+  console.log(navButton);
     const [hoverBtn, sethoverBtn] = useState(null);
-    const [selectedBtn, setSelectedBtn] = useState(snap.navButton);
+    const [selectedBtn, setSelectedBtn] = useState(navButton);
+    useEffect(() => {
+        //Runs only on the first render
+        setSelectedBtn(navButton);
+      }, [navButton]);
+
     return (
         <nav className="navbar navbar-expand-lg bg-black">
             <div className="container-fluid">

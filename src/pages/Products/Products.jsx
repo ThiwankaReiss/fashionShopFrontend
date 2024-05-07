@@ -1,4 +1,5 @@
 import './Products.css'
+import AllFrocks3D from '../../components/AllFrocks3D/AllFrocks3D'
 export default function Products() {
     return (
         <div className='back-ground-image1 d-flex'>
@@ -31,6 +32,9 @@ export default function Products() {
                         </div>
                     </div>
                     <div className="col-1"></div>
+                    <div className="col-12">
+                        <AllFrocks3D></AllFrocks3D>
+                    </div>
 
                 </div>
             </div>

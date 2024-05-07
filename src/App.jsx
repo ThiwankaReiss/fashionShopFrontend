@@ -7,13 +7,14 @@ import Products from './pages/Products/Products'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Manage from './pages/Manage/Manage'
-
+import { useSnapshot } from 'valtio'
+import state from './store'
 function App() {
-
+  const snap = useSnapshot(state);
   return (
     <BrowserRouter>
     {/* //   <CustomerProvider> */}
-        <NavBar />
+        <NavBar navButton={snap.navButton} />
         <Routes>
           <Route path="/" element={<Products />} />
           <Route path="/login" element={<Login />} />
