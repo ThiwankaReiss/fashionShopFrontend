@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FrockCustomizer from '../../components/FrockCustomizer.jsx/FrockCustomizer';
 
-
+import ShirtCustomizer from '../../components/ShirtCustomizer/ShirtCustomizer';
 
 const Manage = () => {
 
@@ -18,7 +18,7 @@ const Manage = () => {
             <button>Add frock 3D</button>
             <button>Add image</button>
             <FrockCustomizer></FrockCustomizer>
-            
+            <ShirtCustomizer></ShirtCustomizer>
         </div>
     );
 };

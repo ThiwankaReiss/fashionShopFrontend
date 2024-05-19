@@ -3,11 +3,7 @@ const state=proxy({
     customer:null,
     navButton:1,
     color:'#EFBD48',
-    isLogoTexture: true,
-    isFullTexture:true,
-    logoDecal:'./threejs.png',
-    fullDecal:'./threejs.png',
-    sideLogo:'logoInti.png',
-    belt:'belt.png'
+    selectedDress:null,
+    situation:null
 });
 export default state;

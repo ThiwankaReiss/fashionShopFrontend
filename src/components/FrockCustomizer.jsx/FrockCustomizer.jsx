@@ -24,6 +24,19 @@ const FrockCustomizer = () => {
     const [showTopImage, setShowTopImage] = useState(true);
     const [showBottomImage, setShowBottomImage] = useState(true);
     const snap = useSnapshot(state);
+    useEffect(() => {
+        if(snap.selectedDress!=null){
+            setBeltColor(snap.selectedDress.beltColor);
+            setBuckelColor(snap.selectedDress.buckelColor);
+            setTopColor(snap.selectedDress.topColor);
+            setBottomColor(snap.selectedDress.bottomColor);
+            setTopDecalImage(snap.selectedDress.topDecalImage);
+            setDecalScale(snap.selectedDress.decalScale);
+            setBottomTextureImage(snap.selectedDress.bottomTextureImage);
+            setImageRepeate(snap.selectedDress.imageRepeate);   
+        }
+    }, []);
+    
     const [customer, setCustomer] = useState(snap.customer);
 
     const getBeltColor = (col) => {

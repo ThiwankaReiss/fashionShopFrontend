@@ -27,7 +27,7 @@ export default function Login() {
                 console.log(response.data);
                 
                 if (response.data != null && response.data !='') {
-                    state.navButton=4;
+                    
                     state.customer=response.data;
                     Swal.fire({
                         title: "Sucess!",
@@ -35,9 +35,14 @@ export default function Login() {
                         icon: "success"
                     });
                     Swal.hideLoading();
-                   
-                    console.log(snap.navButton);
-                    navigate('/profile')                
+                    if(snap.selectedDress==null){
+                        state.navButton=4;
+                        navigate('/profile')            
+                    }else if(state.situation=="customize"){
+                        state.navButton=5;
+                        navigate('/manage') 
+                    }
+                        
                 } else {
                     Swal.fire({
                         icon: "error",
